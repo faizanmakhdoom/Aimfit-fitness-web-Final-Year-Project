@@ -1,0 +1,82 @@
+/* Remove default margin from body to fix navbar spacing */
+body {
+  margin: 0;
+  padding: 0;
+}
+.admin-page {
+  min-height: 100vh;
+  background: #fff0f5;
+  margin: 0;
+  padding: 0;
+}
+.admin-login {
+  max-width: 400px;
+  margin: 60px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.admin-login h2 {
+  margin-bottom: 20px;
+  color: #ff69b4;
+}
+
+.admin-login input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}
+
+.admin-login button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff69b4;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.user-table-container {
+  padding: 30px;
+}
+
+.user-table-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ff69b4;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+   border: 2px solid #ff69b4;
+}
+
+table th, table td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+table th {
+  background-color: #ff69b4;
+  color: white;
+}
+
+table td button {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}

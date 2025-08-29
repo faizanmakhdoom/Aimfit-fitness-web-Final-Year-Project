@@ -1,0 +1,78 @@
+/* Remove default margin from body to fix navbar spacing */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ensure navbar sticks to the top */
+.community-page {
+  margin: 0;
+  padding: 0;
+  background-image: url('https://img.freepik.com/premium-vector/people-crowd-silhouette-background-teamwork-concept_3482-9760.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Hero section with centered heading */
+.community-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 80px 20px 40px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: rgb(164, 83, 123);
+  max-width: 600px;
+  line-height: 1.4;
+  margin: 0 auto 40px;
+}
+
+/* Testimonials layout */
+.testimonial-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+  gap: 30px;
+}
+
+/* Individual testimonial card */
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.397);
+  background-color: rgba(254, 255, 255, 0.24);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.testimonial-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.testimonial-details h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.testimonial-details p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.testimonial-card:hover{
+transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+  border: 2px solid #ff69b4;
+}

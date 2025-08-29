@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.workouts-page {
+  margin: 0;
+  padding: 0;
+  background: #fff0f5;
+  min-height: 100vh;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 40px;
+  color: #ff69b4;
+  margin: 40px 0 30px;
+}
+
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 0 20px 50px;
+}
+
+.workout-card {
+  background: white;
+  width: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.workout-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.card-content h2 {
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  font-size: 15px;
+  color: #666;
+}
+
+.workout-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+  border: 2px solid #ff69b4;
+}
