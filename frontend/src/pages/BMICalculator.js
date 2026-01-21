@@ -1,5 +1,5 @@
+
 import React, { useState } from "react";
-import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../BlogPost.css"; // Reuse your pink theme
@@ -35,12 +35,11 @@ const BMICalculator = () => {
     setCategory(status);
 
     try {
-      await axios.post(`${process.env.REACT_APP_BMI_API_URL}`, {
-        ...formData,
-        bmi,
-        category,
+      await fetch("http://localhost:5000/api/bmi", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData, bmi, category }),
       });
-      console.log("BMI saved successfully");
     } catch (err) {
       console.error("Error saving BMI:", err);
     }
