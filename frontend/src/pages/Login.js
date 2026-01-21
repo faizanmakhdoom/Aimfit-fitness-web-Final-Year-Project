@@ -18,7 +18,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/users/login", formData)
+    axios.post(`${process.env.REACT_APP_USERS_API_URL}/login`, loginData)
       .then(() => {
         alert("Login successful!");
         navigate("/");
