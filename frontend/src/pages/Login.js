@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../api";
 import Navbar from "../components/Navbar";
 import { useNavigate, Link } from "react-router-dom";
 import "./Login.css";
@@ -18,7 +18,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/users/login", formData)
+    API.post("/api/users/login", formData)
       .then(() => {
         alert("Login successful!");
         navigate("/");
