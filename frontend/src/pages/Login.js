@@ -18,16 +18,15 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     axios.postaxios.post(`${process.env.REACT_APP_API_URL}/login`, formData)
-  .then(() => {
-    alert("Login successful!");
-    navigate("/");
-  })
-  .catch((err) => {
-    console.error("Login Error:", err);
-    alert("Invalid email or password.");
-  });
-};
+    axios.post("http://localhost:5000/api/users/login", formData)
+      .then(() => {
+        alert("Login successful!");
+        navigate("/");
+      })
+      .catch(() => {
+        alert("Invalid email or password.");
+      });
+  };
 
   return (
     <div className="login-page">
