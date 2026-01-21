@@ -1,13 +1,22 @@
 FROM node:20
 
 WORKDIR /app
-COPY .env ./
 
 COPY package*.json ./
-RUN npm install -g npm@11.7.0
 
+# Install dependencies
+RUN npm install
+
+# Copy rest of the app
 COPY . .
+COPY .env ./
 
 EXPOSE 3000
 
 CMD ["npm", "start"]
+
+
+
+
+
+
