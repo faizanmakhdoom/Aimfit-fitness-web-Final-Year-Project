@@ -21,12 +21,11 @@ function JoinUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-  .post(`${process.env.REACT_APP_JOINUS_API_URL}/join`, formData)
-  .then(() => {
-    alert("Thanks for joining AimFit! We'll contact you soon.");
-  })
-  .catch((err) => {
+    axios.post(`${process.env.REACT_APP_JOINUS_API_URL}`, formData)
+      .then(() => {
+      alert("Thanks for joining AimFit! We'll contact you soon.");
+     })
+     .catch((err) => {
     console.error("Join Us Error:", err);
     alert("Submission failed. Please try again.");
   });
