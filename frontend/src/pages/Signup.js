@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
@@ -20,17 +21,15 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.postaxios.post(`${process.env.REACT_APP_API_URL}/signup`, formData)
-  .then(() => {
-    alert("Signup successful!");
-    navigate("/login");  // Navigate to login page after signup
-  })
-  .catch((err) => {
-    console.error("Signup Error:", err);
-    alert("Signup failed. Try again.");
-  });
-
-};
+    axios.post("http://localhost:5000/api/users/signup", formData)
+      .then(() => {
+        alert("Signup successful!");
+        navigate("/login");
+      })
+      .catch(() => {
+        alert("Signup failed. Try again.");
+      });
+  };
 
   return (
     <div className="signup-page">
