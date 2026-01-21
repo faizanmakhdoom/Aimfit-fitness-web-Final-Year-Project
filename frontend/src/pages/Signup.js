@@ -20,7 +20,7 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_USERS_API_URL}/signup`, formData)
+    axios.postaxios.post(`${process.env.REACT_APP_API_URL}/signup`, formData)
   .then(() => {
     alert("Signup successful!");
     navigate("/login");  // Navigate to login page after signup
