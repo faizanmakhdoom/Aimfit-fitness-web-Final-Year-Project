@@ -18,7 +18,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-     axios.post(`${process.env.REACT_APP_USERS_API_URL}/login`, formData)
+     axios.postaxios.post(`${process.env.REACT_APP_API_URL}/login`, formData)
   .then(() => {
     alert("Login successful!");
     navigate("/");
