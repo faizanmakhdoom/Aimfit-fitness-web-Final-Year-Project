@@ -1,5 +1,5 @@
-# 1️⃣ Build stage
-FROM node:18 as build
+
+FROM node:18
 
 WORKDIR /app
 
@@ -9,16 +9,7 @@ RUN npm install
 COPY .env ./
 COPY . .
 
-RUN npm run build
+EXPOSE 3000
 
-# 2️⃣ Production stage with Nginx
-FROM nginx:alpine
+CMD ["npm", "start"]
 
-# Copy React build output to Nginx html folder
-COPY --from=build /app/build /usr/share/nginx/html
-
-# Expose port
-EXPOSE 80
-
-# Run Nginx
-CMD ["nginx", "-g", "daemon off;"]
