@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../api";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "./Admin.css";
@@ -11,11 +11,11 @@ function Admin() {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
 
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/api/admin/users")
+    API.get("/api/admin/users")
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
 
-    axios.get("http://localhost:5000/api/joinus/all")
+    API.get("/api/joinus/all")
      .then(res => {
     console.log("Join Us data:", res.data); // 👈 Add this
     setJoinUsers(res.data);
@@ -25,7 +25,7 @@ function Admin() {
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/admin/login", loginData)
+    API.post("/api/admin/login", loginData)
       .then(() => {
         setLoggedIn(true);
         fetchUsers();
@@ -34,7 +34,7 @@ function Admin() {
   };
 
   const deleteUser = (id) => {
-    axios.delete(`http://localhost:5000/api/admin/users/${id}`)
+    API.delete(`/api/admin/users/${id}`)
       .then(() => fetchUsers())
       .catch(err => console.error(err));
   };
