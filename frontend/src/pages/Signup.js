@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../api";
 import Navbar from "../components/Navbar";
 import { useNavigate, Link } from "react-router-dom";
 import "./Signup.css";
@@ -21,7 +21,7 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/users/signup", formData)
+    API.post("/api/users/signup", formData)
       .then(() => {
         alert("Signup successful!");
         navigate("/login");
