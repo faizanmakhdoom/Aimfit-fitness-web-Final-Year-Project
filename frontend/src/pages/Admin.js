@@ -11,7 +11,7 @@ function Admin() {
   const [loginData, setLoginData] = useState({ email: "", password: "" });
 
   const fetchUsers = () => {
-    axios.get("http://localhost:5000/api/admin/users")
+    axios.get(`${process.env.REACT_APP_ADMIN_API_URL}/users`)
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
 
@@ -25,7 +25,7 @@ function Admin() {
 
   const handleAdminLogin = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:5000/api/admin/login", loginData)
+    axios.post(`${process.env.REACT_APP_ADMIN_API_URL}/login`, loginData)
       .then(() => {
         setLoggedIn(true);
         fetchUsers();
@@ -34,7 +34,7 @@ function Admin() {
   };
 
   const deleteUser = (id) => {
-    axios.delete(`http://localhost:5000/api/admin/users/${id}`)
+    axios.delete(`${process.env.REACT_APP_ADMIN_API_URL}/users/${id}`)
       .then(() => fetchUsers())
       .catch(err => console.error(err));
   };
