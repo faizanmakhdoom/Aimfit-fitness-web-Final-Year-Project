@@ -22,14 +22,15 @@ function JoinUs() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/joinus/join", formData)
-      .then(() => {
-        alert("Thanks for joining AimFit! We'll contact you soon.");
-      })
-      .catch(() => {
-        alert("Submission failed. Please try again.");
-      });
-  };
+  .post(`${process.env.REACT_APP_JOINUS_API_URL}/join`, formData)
+  .then(() => {
+    alert("Thanks for joining AimFit! We'll contact you soon.");
+  })
+  .catch((err) => {
+    console.error("Join Us Error:", err);
+    alert("Submission failed. Please try again.");
+  });
+};
 
   return (
     <div className="join-page">
