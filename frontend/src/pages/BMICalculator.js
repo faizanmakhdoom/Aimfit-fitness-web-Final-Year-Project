@@ -1,5 +1,6 @@
 
 import React, { useState } from "react";
+import API from "../api";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../BlogPost.css"; // Reuse your pink theme
@@ -20,30 +21,31 @@ const BMICalculator = () => {
   };
 
   const calculateBMI = async (e) => {
-    e.preventDefault();
-    const h = parseFloat(formData.height) / 100;
-    const w = parseFloat(formData.weight);
-    const bmi = (w / (h * h)).toFixed(1);
+  e.preventDefault();
 
-    let status = "";
-    if (bmi < 18.5) status = "Underweight";
-    else if (bmi < 24.9) status = "Normal";
-    else if (bmi < 29.9) status = "Overweight";
-    else status = "Obese";
+  const h = parseFloat(formData.height) / 100;
+  const w = parseFloat(formData.weight);
+  const bmi = (w / (h * h)).toFixed(1);
 
-    setBmiResult(bmi);
-    setCategory(status);
+  let status = "";
+  if (bmi < 18.5) status = "Underweight";
+  else if (bmi < 24.9) status = "Normal";
+  else if (bmi < 29.9) status = "Overweight";
+  else status = "Obese";
 
-    try {
-      await fetch("http://localhost:5000/api/bmi", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, bmi, category }),
-      });
-    } catch (err) {
-      console.error("Error saving BMI:", err);
-    }
-  };
+  setBmiResult(bmi);
+  setCategory(status);
+
+  try {
+    await API.post("/api/bmi", {
+      ...formData,
+      bmi,
+      category: status,
+    });
+  } catch (err) {
+    console.error("Error saving BMI:", err);
+  }
+};
 
   return (
     <div className="blog-post-page">
