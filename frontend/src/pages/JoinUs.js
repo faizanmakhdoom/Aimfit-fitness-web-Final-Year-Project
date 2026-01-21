@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import API from "../api";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "./JoinUs.css";
@@ -21,8 +21,7 @@ function JoinUs() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:5000/api/joinus/join", formData)
+    API.post("/api/joinus/join", formData)
       .then(() => {
         alert("Thanks for joining AimFit! We'll contact you soon.");
       })
