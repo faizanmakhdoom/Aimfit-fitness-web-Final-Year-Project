@@ -58,13 +58,15 @@ Stay strong 💪,
 The AimFit Team`,
     };
 
-    // Send both emails in parallel
-    await Promise.all([
-      transporter.sendMail(adminMailOptions),
-      transporter.sendMail(userMailOptions),
-    ]);
-
-    res.json("User Joined, Emails Sent, and Data Saved");
+  try {
+  await transporter.sendMail(adminMailOptions);
+  await transporter.sendMail(userMailOptions);
+} catch (emailError) {
+  console.error("Email failed:", emailError.message);
+  // DO NOT FAIL REQUEST
+}
+res.status(200).json("User Joined and Data Saved");
+    
   } catch (err) {
     console.error("Error:", err);
     res.status(500).send("Something went wrong");
