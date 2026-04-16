@@ -4,7 +4,7 @@ const { OTLPTraceExporter } = require('@opentelemetry/exporter-trace-otlp-http')
 
 const sdk = new NodeSDK({
   traceExporter: new OTLPTraceExporter({
-    url: 'http://192.168.0.53:4318/v1/traces',
+    url: 'http://3.234.254.78:4318/v1/traces',
   }),
 
   instrumentations: [getNodeAutoInstrumentations()],
